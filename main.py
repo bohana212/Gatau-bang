@@ -2,9 +2,10 @@ from flask import Flask, request, jsonify, send_from_directory
 from yt_dlp import YoutubeDL
 import os
 from flask_cors import CORS
+from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
-CORS(app)
+run_with_ngrok(app)  # Ini yang aktifin ngrok
 
 STATIC_DIR = 'static'
 if not os.path.exists(STATIC_DIR):
