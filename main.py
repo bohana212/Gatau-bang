@@ -5,7 +5,8 @@ from flask_cors import CORS
 from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
-run_with_ngrok(app)  # Ini yang aktifin ngrok
+run_with_ngrok(app)  # Aktifkan ngrok
+CORS(app)  # Biar bisa diakses dari luar
 
 STATIC_DIR = 'static'
 if not os.path.exists(STATIC_DIR):
@@ -56,4 +57,4 @@ def serve_file(filename):
     return send_from_directory(STATIC_DIR, filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
